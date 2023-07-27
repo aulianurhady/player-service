@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "97db22a4-f560-48cd-9266-9bd76a0dc151",
+		"name": "Player",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5728785"
+	},
+	"item": [
+		{
+			"name": "Plain",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3012/players/plain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						"plain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user2\",\r\n    \"password\": \"pass456\",\r\n    \"nama_rekening\": \"\",\r\n    \"nomor_rekening\": \"\",\r\n    \"nama_bank\": \"\",\r\n    \"sisa_saldo\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/players/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA0OTg0NzcsImlzcyI6IlBsYXllciBTZXJ2aWNlIiwiaWQiOjEsInVzZXJuYW1lIjoidXNlcjEiLCJyZWdpc3Rlcl9hdCI6IjIwMjMtMDctMjcgMjM6MDE6MzkuNTgzICswNzAwICswNyJ9.ih9q-TQQm0YlzjU6wWuhd3G4zYwkIKqr63frEZA1adg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/players/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Filtered List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA0OTg0NzcsImlzcyI6IlBsYXllciBTZXJ2aWNlIiwiaWQiOjEsInVzZXJuYW1lIjoidXNlcjEiLCJyZWdpc3Rlcl9hdCI6IjIwMjMtMDctMjcgMjM6MDE6MzkuNTgzICswNzAwICswNyJ9.ih9q-TQQm0YlzjU6wWuhd3G4zYwkIKqr63frEZA1adg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/players/list-filter?username=user2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						"list-filter"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user2"
+						},
+						{
+							"key": "sisa_saldo",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Topup Saldo",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA0OTg0NzcsImlzcyI6IlBsYXllciBTZXJ2aWNlIiwiaWQiOjEsInVzZXJuYW1lIjoidXNlcjEiLCJyZWdpc3Rlcl9hdCI6IjIwMjMtMDctMjcgMjM6MDE6MzkuNTgzICswNzAwICswNyJ9.ih9q-TQQm0YlzjU6wWuhd3G4zYwkIKqr63frEZA1adg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sisa_saldo\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/players/:id/topup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						":id",
+						"topup"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Rekening Bank",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA0OTg0NzcsImlzcyI6IlBsYXllciBTZXJ2aWNlIiwiaWQiOjEsInVzZXJuYW1lIjoidXNlcjEiLCJyZWdpc3Rlcl9hdCI6IjIwMjMtMDctMjcgMjM6MDE6MzkuNTgzICswNzAwICswNyJ9.ih9q-TQQm0YlzjU6wWuhd3G4zYwkIKqr63frEZA1adg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_rekening\": \"user1\",\r\n    \"nomor_rekening\": \"1234567890\",\r\n    \"nama_bank\": \"bank1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/players/:id/rekening-bank",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						":id",
+						"rekening-bank"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail Player",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA0OTg0NzcsImlzcyI6IlBsYXllciBTZXJ2aWNlIiwiaWQiOjEsInVzZXJuYW1lIjoidXNlcjEiLCJyZWdpc3Rlcl9hdCI6IjIwMjMtMDctMjcgMjM6MDE6MzkuNTgzICswNzAwICswNyJ9.ih9q-TQQm0YlzjU6wWuhd3G4zYwkIKqr63frEZA1adg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3012/players/:id/detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						":id",
+						"detail"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"pass123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3012/players/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3012",
+					"path": [
+						"players",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
